@@ -1,0 +1,16 @@
+PODS:
+  - STNavigationBarAutoHide (0.1.0)
+
+DEPENDENCIES:
+  - STNavigationBarAutoHide (from `../`)
+
+EXTERNAL SOURCES:
+  STNavigationBarAutoHide:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  STNavigationBarAutoHide: c9879cbf2c3be135ae3d23fc92503d905c150b60
+
+PODFILE CHECKSUM: 671e04bfa8d25a3352ff663e6f5ad1ffbae70b99
+
+COCOAPODS: 1.11.3

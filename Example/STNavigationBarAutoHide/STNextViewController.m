@@ -1,29 +1,27 @@
 //
-//  STViewController.m
-//  STNavigationBarAutoHide
+//  STNextViewController.m
+//  STNavigationBarAutoHide_Example
 //
-//  Created by talon on 08/30/2022.
-//  Copyright (c) 2022 talon. All rights reserved.
+//  Created by talon on 2022/8/30.
+//  Copyright © 2022 talon. All rights reserved.
 //
 
-#import "STViewController.h"
 #import "STNextViewController.h"
 #import <UIViewController+NavigationBarAutoHide.h>
 
-@interface STViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface STNextViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 
 @end
 
-@implementation STViewController
+@implementation STNextViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"NavigationBarAutoHide";
+    self.navigationItem.title = @"Next VC";
     self.view.backgroundColor = [UIColor whiteColor];
-    
     
     _tableView = ({
         UITableView *view = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
@@ -34,11 +32,14 @@
         view;
     });
     
-    //导航栏自动隐藏配置滚动视图
     [self st_navigationBarAutoHideConfigureScrollView:_tableView];
-    
+
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"AutoHideOff" style:UIBarButtonItemStylePlain target:self action:@selector(rightItemAction)];
     self.navigationItem.rightBarButtonItem = rightItem;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
 }
 
 
@@ -67,7 +68,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
     }
-    cell.textLabel.text = @"Click push to the next ViewController";
+    cell.textLabel.text = @"Click the rightBarButtonItem to change AutoHideEnabled";
     return cell;
 }
 
@@ -75,9 +76,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:true];
-    
-    STNextViewController *testVC = [STNextViewController new];
-    [self.navigationController pushViewController:testVC animated:true];
 }
+
 
 @end
