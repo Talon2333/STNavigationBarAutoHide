@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '10.0'
+
+target 'STNavigationBarAutoHide_Example' do
+  pod 'STNavigationBarAutoHide', :path => '../'
+
+  target 'STNavigationBarAutoHide_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
