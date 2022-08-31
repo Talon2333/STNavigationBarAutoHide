@@ -11,7 +11,7 @@ NavigationBar automatically hides when scrolling, same as twitter.
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-![DemoHomeVC](https://github.com/Talon2333/STNavigationBarAutoHide/blob/main/Example/Demo%20Gif/DemoHomeVC.gif)|![DemoNextVC](https://github.com/Talon2333/STNavigationBarAutoHide/blob/main/Example/Demo%20Gif/DemoNextVC.gif)
+![DemoHomeVC](https://github.com/Talon2333/STNavigationBarAutoHide/blob/master/Example/Demo%20Gif/DemoHomeVC.gif)|![DemoNextVC](https://github.com/Talon2333/STNavigationBarAutoHide/blob/master/Example/Demo%20Gif/DemoNextVC.gif)
 ---|---
 ## Requirements
 
