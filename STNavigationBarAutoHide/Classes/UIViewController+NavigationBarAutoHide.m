@@ -8,8 +8,6 @@
 #import "UIViewController+NavigationBarAutoHide.h"
 #import <objc/runtime.h>
 
-#define STNavigationBarCoverViewTag 2333
-
 @interface UIViewController () <UIScrollViewDelegate>
 
 @end
@@ -84,7 +82,7 @@
 }
 
 
-#pragma mark - viewWillDisappear
+#pragma mark - ViewWillDisappear
 - (void)st_viewWillDisappear:(BOOL)animated {
     if ([self respondsToSelector:@selector(st_viewWillDisappear:)]) {
         [self st_viewWillDisappear:animated];
@@ -263,7 +261,7 @@ static inline void st_swizzleSelector(Class theClass, SEL originalSelector, SEL 
     static Class navigationBarContentViewClass;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        navigationBarContentViewClass = NSClassFromString(@"_UINavigationBarContentView");
+        navigationBarContentViewClass = NSClassFromString(encodeText(@"`VJObwjhbujpoCbsDpoufouWjfx", -1));
     });
 
     if (navigationBarContentViewClass != nil) {
@@ -283,11 +281,12 @@ static inline void st_swizzleSelector(Class theClass, SEL originalSelector, SEL 
     static Class backButtonContainerViewClass;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        buttonBarStackViewClass = NSClassFromString(@"_UIButtonBarStackView");
-        modernBarButtonClass = NSClassFromString(@"_UIModernBarButton");
-        backButtonMaskViewClass = NSClassFromString(@"_UIBackButtonMaskView");
-        backButtonContainerViewClass = NSClassFromString(@"_UIBackButtonContainerView");
+        buttonBarStackViewClass = NSClassFromString(encodeText(@"`VJCvuupoCbsTubdlWjfx", -1));
+        modernBarButtonClass = NSClassFromString(encodeText(@"`VJNpefsoCbsCvuupo", -1));
+        backButtonMaskViewClass = NSClassFromString(encodeText(@"`VJCbdlCvuupoNbtlWjfx", -1));
+        backButtonContainerViewClass = NSClassFromString(encodeText(@"`VJCbdlCvuupoDpoubjofsWjfx", -1));
     });
+    
     
     for (UIView *subview in view.subviews)
     {
@@ -343,6 +342,17 @@ static inline void st_swizzleSelector(Class theClass, SEL originalSelector, SEL 
             }
         }
     }
+}
+
+#pragma mark - Encode
+static NSString *encodeText(NSString *string, int key) {
+    NSMutableString *result = [[NSMutableString alloc] init];
+    for (int i = 0; i < (int)[string length]; i++) {
+        unichar c = [string characterAtIndex:i];
+        c += key;
+        [result appendString:[NSString stringWithCharacters:&c length:1]];
+    }
+    return result;
 }
 
 
