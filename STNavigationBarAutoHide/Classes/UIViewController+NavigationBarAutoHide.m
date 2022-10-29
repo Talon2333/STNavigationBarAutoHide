@@ -275,13 +275,11 @@ static inline void st_swizzleSelector(Class theClass, SEL originalSelector, SEL 
 }
 
 - (void)changeSubviewAlphaWithView:(UIView *)view alpha:(CGFloat)alpha {
-    static Class buttonBarStackViewClass;
     static Class modernBarButtonClass;
     static Class backButtonMaskViewClass;
     static Class backButtonContainerViewClass;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        buttonBarStackViewClass = NSClassFromString(encodeText(@"`VJCvuupoCbsTubdlWjfx", -1));
         modernBarButtonClass = NSClassFromString(encodeText(@"`VJNpefsoCbsCvuupo", -1));
         backButtonMaskViewClass = NSClassFromString(encodeText(@"`VJCbdlCvuupoNbtlWjfx", -1));
         backButtonContainerViewClass = NSClassFromString(encodeText(@"`VJCbdlCvuupoDpoubjofsWjfx", -1));
@@ -291,9 +289,7 @@ static inline void st_swizzleSelector(Class theClass, SEL originalSelector, SEL 
     for (UIView *subview in view.subviews)
     {
         subview.alpha = alpha;
-        subview.hidden = alpha == 0;
-        if ([subview isKindOfClass:buttonBarStackViewClass] ||
-            [subview isKindOfClass:modernBarButtonClass] ||
+        if ([subview isKindOfClass:modernBarButtonClass] ||
             [subview isKindOfClass:backButtonMaskViewClass] ||
             [subview isKindOfClass:backButtonContainerViewClass]) {
             continue;
